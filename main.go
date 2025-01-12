@@ -19,5 +19,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	//game loop-while running , update state,draw screen ,else close
+	running := false
+	for {
+
+		//draw logic
+		// running logic
+
+		event := screen.PollEvent()
+	}
 
 }
