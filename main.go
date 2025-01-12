@@ -1,7 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/gdamore/tcell/v2"
+)
 
 func main() {
-	fmt.Println("coin collector game")
+	screen, err := tcell.NewScreen()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer screen.Fini()
+
+	err = screen.Init()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
