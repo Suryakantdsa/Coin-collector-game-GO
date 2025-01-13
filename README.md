@@ -49,12 +49,6 @@ A terminal-based coin collector game built with **Go**. Navigate and collect coi
 
 ---
 
-## 🤝 Contribution
-
-Feel free to fork the repository and submit a pull request if you’d like to improve or extend this project. Contributions are welcome! ❤️
-
----
-
 ## 📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
