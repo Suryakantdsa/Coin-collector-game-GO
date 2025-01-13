@@ -74,12 +74,19 @@ func main() {
 		//getting the event
 		event := screen.PollEvent()
 
-		// checking the event type
 		playerMoved := false
+		// Handle different types of terminal events
 		switch event := event.(type) {
-		case *tcell.EventKey:
+		case *tcell.EventKey: // This block handles key press events specifically
+			/*
+				event.(type) syntax in Go is a type assertion used in a type switch. It allows you to determine the dynamic type of an interface value at runtime and act on it.
 
-			//checking the key
+				Nested switch is used here to differentiate between event types (e.g., key events, mouse events, etc.).
+				Once it's confirmed that the event is a key press (*tcell.EventKey),
+				the second switch is used to identify the specific key pressed.
+
+
+			*/
 			switch event.Rune() {
 			case 'q':
 				running = false
@@ -99,6 +106,8 @@ func main() {
 				playerMoved = true
 
 			}
+			// case *tcell.EventResize:
+
 		}
 		if playerMoved {
 			coinCollectedIndex := -1
@@ -122,6 +131,7 @@ func main() {
 			// 0 1 2 3 4
 			// 0 1 4 3 4
 		}
+
 	}
 
 }
