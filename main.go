@@ -21,6 +21,11 @@ func main() {
 	}
 
 	player := NewSprite('@', 10, 10)
+	coins := []*Sprite{
+		NewSprite('0', 10, 26),
+		NewSprite('0', 40, 10),
+		NewSprite('0', 15, 53),
+	}
 	//game loop-while running , update state,draw screen ,else close
 	running := true
 	for running {
@@ -28,6 +33,9 @@ func main() {
 		//draw logic
 		screen.Clear()
 		player.Draw(screen)
+		for _, coin := range coins {
+			coin.Draw(screen)
+		}
 		screen.Show()
 
 		// running logic
