@@ -14,7 +14,6 @@ func drawString(screen tcell.Screen, x, y int, msg string) {
 	}
 
 }
-
 func setupCoin(level int) []*Sprite {
 	coins := make([]*Sprite, level+2)
 	for index := range level + 2 {
@@ -79,6 +78,8 @@ func main() {
 		playerMoved := false
 		switch event := event.(type) {
 		case *tcell.EventKey:
+
+			//checking the key
 			switch event.Rune() {
 			case 'q':
 				running = false
