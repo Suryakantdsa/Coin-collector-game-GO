@@ -19,14 +19,39 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	player := NewSprite('@', 10, 10)
 	//game loop-while running , update state,draw screen ,else close
-	running := false
-	for {
+	running := true
+	for running {
 
 		//draw logic
-		// running logic
+		screen.Clear()
+		player.Draw(screen)
+		screen.Show()
 
+		// running logic
+		//getting the event
 		event := screen.PollEvent()
+
+		// checking the event type
+
+		switch event := event.(type) {
+		case *tcell.EventKey:
+			switch event.Rune() {
+			case 'q':
+				running = false
+			case '8':
+				player.y -= 1
+			case '2':
+				player.y += 1
+			case '4':
+				player.x -= 1
+			case '6':
+				player.x += 1
+
+			}
+		}
 	}
 
 }
